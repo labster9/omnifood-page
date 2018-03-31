@@ -1,0 +1,437 @@
+/* ---------------------- */
+/* BASIC SETUP */
+/* ---------------------- */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #fff;
+    color: #555;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+}
+
+.clearfix {zoom: 1}
+.clearfix:after {
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+/* ---------------------- */
+/* REUSABLE COMPONENTS */
+/* ---------------------- */
+
+.row {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 80px 0;
+}
+
+.box {
+    padding: 1%;
+}
+
+/* -------- HEADINGS -------- */
+h1,
+h2 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-weight: 290;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #ebe5e5;
+    font-size: 240%;
+    word-spacing: 3px;
+}
+
+h2{
+    font-weight: 300;
+    word-spacing: 2px;
+    text-align: center;
+    font-size: 180%;
+    margin-bottom: 30px;
+}
+
+h2:after {
+    display: block;
+    height: 2px;
+    background-color: #e67e22;
+    content: " ";
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+h3 {
+    font-size: 118%;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+/* -------- PARAGRAPHS -------- */
+.long-copy {
+    line-height: 145%;
+    width: 70%;
+    margin-left: 15%;
+}
+
+.box p {
+    font-size: 90%;
+    line-height: 145%;
+}
+
+/* -------- ICONS -------- */
+.icon-big {
+    font-size: 320%;
+    color: #e67e22;
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+
+.icon-small {
+    font-size: 115%;
+    color: #e67e22;
+    display: inline-block;
+    padding: 5px 8px;
+    text-align: center;
+    /* secrets to align icons and text */
+    line-height: 120%;
+    vertical-align: center;
+}
+/* -------- BUTTONS -------- */
+.btn:link,
+.btn:visited {
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none; /* usuwa podkreslenie na niebiesko */
+    border-radius: 200px;
+    color: #ebe5e5;
+    transition: background-color 0.5s, border 0.5s, color 0.5s; /* opoznienie w pojawianiu sie/zmienaniu */
+}
+
+.btn-full:link,
+.btn-full:visited {
+    background-color: #e67e22;
+    border: 1px solid #e67e22;
+    margin-right: 10px;
+}
+
+.btn-ghost:link,
+.btn-ghost:visited {
+    border: 1px solid #e67e22;
+    color: #e67e22;
+}
+
+.btn:hover,
+.btn:active {
+    background-color: #bf6516;
+}
+
+.btn-full:hover,
+.btn-full:active {
+    border: 1px solid #bf6516;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+    border: 1px solid #bf6516;
+    color: #ebe5e5;
+}
+
+/* ---------------------- */
+/* HEADER */
+/* ---------------------- */
+.hero-text-box {
+    position: absolute;
+    width: 1140px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* przesuwa element, pierwsza wartosc-horizontal, druga-vertical */
+}
+
+header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.69), rgba(0, 0, 0, 0.69)), url(img/hero.jpg); /*nadaje przezroczystosc */
+    background-size: cover; /* zdjecie pokrywa caly pojemnik */
+    background-position: center;
+    height: 100vh; /* odwoluje sie do viewport height, w tym przypadku bedzie to maksymalna wysokosc przegladarki */
+    background-attachment: fixed;
+}
+
+.logo {
+    margin-top: 10px;
+    height: 120px;
+    width: auto;
+    float: left;
+}
+
+.main-nav {
+    float: right;
+    list-style: none; /* usuwa wypunktowanie */    
+    margin-top: 45px;
+}
+
+.main-nav li {
+    display: inline-block; /* oznacza, ze sa w jednej linii kolo siebie */
+    margin-left: 30px;
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+    text-transform: uppercase; /* formatuje tekst, w tym przypadku wszystko z duzych liter */
+    padding: 6px 0;
+    color: #ebe5e5;
+    text-decoration: none;
+    font-size: 90%;
+    border-bottom: 2px solid transparent; /* musi byc, zeby wjechalo prawidlowo hover */
+    transition: border-bottom 0.5s
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+    border-bottom: 2px solid #e67e22;
+}
+
+/* ---------------------- */
+/* MEALS */
+/* ---------------------- */
+
+.section-meals {
+    padding: 0;
+}
+
+.meals-showcase clearfix {
+    list-style: none;
+    width: 100%;
+}
+
+.meals-showcase li {
+    display: block;
+    float: left;
+    width: 25%;
+}
+
+.meal-photo {
+    width: 100%;
+    margin: 0;
+    overflow: hidden; /* ukrywa overflow powstaly w wyniku uzycia transform(img wieksze niz jego containter) */
+    background-color: #000;
+}
+
+.meal-photo img {
+    opacity: 0.65; /* przezroczystosc(1-w ogole nieprzezroczyste/ 0-calkowicie przezroczyste) */
+    width: 100%;
+    height: auto;
+    transform: scale(1.15); /* rozmiar zdjecia 115% zamiast 100% */
+    transition: transform 0.5s, opacity 0.5s;;
+}
+
+.meal-photo img:hover {
+    transform: scale(1.03); /* 1.03 usuwa pasek na dole powstający niewiadomo skąd */
+    opacity: 1;
+}
+
+/* ---------------------- */
+/* HOW IT WORKS */
+/* ---------------------- */
+
+.section-steps {
+    background-color: #ededed;
+}
+
+.steps-box:first-child {
+    padding-right: 3%;
+    text-align: right;
+    margin-top: 30px;
+
+}
+
+.steps-box:last-child {
+    padding-left: 3%;
+    margin-top: 75px; 
+}
+
+.app-screen {
+    width: 40%;
+}
+
+.work-steps {
+    margin-bottom: 50px;
+}
+
+.work-steps:last-of-type {
+    margin-bottom: 80px;
+}
+
+.work-steps div {
+    color: #e67e22;
+    border: 2px solid #e67e22;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    font-size: 150%;
+    padding: 5px;
+    float: left;
+    margin-right: 20px;
+}
+
+.btn-app img {
+    height: 50px;
+    width: 150px;
+    margin-right: 15px;
+}
+
+/* ---------------------- */
+/* CITIES */
+/* ---------------------- */
+
+.city-photo {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.twitter:link,
+.twitter:visited {
+    text-decoration: none;
+    color: #e67e22;
+    border-bottom: 1px solid #e67e22;
+    font-weight: 395;    
+}
+
+.twitter:hover {
+    text-decoration: none;
+    color: #555;
+    font-weight: 395;
+    border-bottom: none;
+    transition: border-bottom 0.5s, color 0.2s;
+}
+
+/* ---------------------- */
+/* CUSTOMERS */
+/* ---------------------- */
+
+.section-customers {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(img/back-customers.jpg);
+    background-size: cover;
+    color: #ebe5e5;
+    background-attachment: fixed; /* zdjecie zostaje w tym samym miejscu po scrollowaniu */
+}
+
+blockquote {
+    font-style: italic;
+    line-height: 145%;
+    position: relative;
+    margin-top: 40px;
+    padding: 2%;
+}
+
+blockquote:before {
+    content: "\201C";
+    font-size: 500%;
+    display: block;
+    position: absolute;
+    left: -5px;
+    top: -5px;
+}
+
+cite {
+    font-size: 90%;
+    margin-top: 20px;
+    display: block;
+}
+
+cite img {
+    border-radius: 50%;
+    width: 15%;
+    vertical-align: middle; /* ustawia tekst pionowo w srodku */
+    margin-right: 5px;
+}
+
+/* ---------------------- */
+/* PLANS */
+/* ---------------------- */
+
+.section-sign-up {
+    background-color: #ededed;
+}
+
+.plan-box {
+    background-color: #fff;
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 5px;
+}
+
+.plan-box div {
+    border-bottom: 1px solid #e8e8e8;
+    padding: 15px;
+}
+
+.plan-box div:last-child {
+    text-align: center;
+}
+
+.plan-box div:first-child {
+    background-color: #fafafa;
+}
+
+.plan-box ul {
+    list-style: none;
+    margin-top: 10px;
+    font-size: 95%;
+}
+
+.plan-box li {
+    padding-bottom: 15px;
+}
+
+.plan-box i {
+    margin-right: 10px;
+    color: #e67e22;
+}
+
+.plan-box a {
+    text-align: center;
+}
+
+.plan-price {
+    font-size: 300%;
+    margin-bottom: 10px;
+    font-weight: 100;
+    color: #e67e22;
+}
+
+.plan-price span {
+    font-size: 30%;
+    font-weight: 300;
+}
+
+.plan-price-meal {
+    font-size: 80%;
+}
+
+
+
+
+
+
