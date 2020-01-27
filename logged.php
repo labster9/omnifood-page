@@ -1,3 +1,12 @@
+<?php
+    session_start();
+
+    if(!isset($_SESSION['zalogowany'])){
+        header('Location: signin.php');
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -24,8 +33,7 @@
                         <li><a href="#">food delivery</a></li>
                         <li><a href="#">how it works</a></li> 
                         <li><a href="#">our cities</a></li>
-                        <li><a href="signup.html">sign up</a></li>
-                        <li><a href="signin.html">sign in</a></li>
+                        <li><a href="logout.php">Log out</a></li>
                     </ul>
                 </div>
             </nav>
@@ -423,4 +431,3 @@
 
     
 </html>
-

@@ -6,16 +6,19 @@
 * {
     margin: 0;
     padding: 0;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
-html {
+html,
+body {
     background-color: #fff;
     color: #555;
     font-family: 'Lato', 'Arial', sans-serif;
     font-weight: 300;
     font-size: 20px;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
 }
 
 .clearfix {zoom: 1}
@@ -125,6 +128,7 @@ h3 {
     text-decoration: none; /* usuwa podkreslenie na niebiesko */
     border-radius: 200px;
     color: #ebe5e5;
+    -webkit-transition: background-color 0.5s, border 0.5s, color 0.5s;
     transition: background-color 0.5s, border 0.5s, color 0.5s; /* opoznienie w pojawianiu sie/zmienaniu */
 }
 
@@ -165,10 +169,12 @@ h3 {
     width: 1140px;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); /* przesuwa element, pierwsza wartosc-horizontal, druga-vertical */
 }
 
 header {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.69)), to(rgba(0, 0, 0, 0.69))), url(img/hero.jpg);
     background-image: linear-gradient(rgba(0, 0, 0, 0.69), rgba(0, 0, 0, 0.69)), url(img/hero.jpg); /*nadaje przezroczystosc */
     background-size: cover; /* zdjecie pokrywa caly pojemnik */
     background-position: center;
@@ -202,6 +208,7 @@ header {
     text-decoration: none;
     font-size: 90%;
     border-bottom: 2px solid transparent; /* musi byc, zeby wjechalo prawidlowo hover */
+    -webkit-transition: border-bottom 0.5s;
     transition: border-bottom 0.5s
 }
 
@@ -240,11 +247,16 @@ header {
     opacity: 0.65; /* przezroczystosc(1-w ogole nieprzezroczyste/ 0-calkowicie przezroczyste) */
     width: 100%;
     height: auto;
+    -webkit-transform: scale(1.15);
     transform: scale(1.15); /* rozmiar zdjecia 115% zamiast 100% */
-    transition: transform 0.5s, opacity 0.5s;;
+    -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+    transition: opacity 0.5s, -webkit-transform 0.5s;
+    transition: transform 0.5s, opacity 0.5s;
+    transition: transform 0.5s, opacity 0.5s, -webkit-transform 0.5s;;
 }
 
 .meal-photo img:hover {
+    -webkit-transform: scale(1.03);
     transform: scale(1.03); /* 1.03 usuwa pasek na dole powstający niewiadomo skąd */
     opacity: 1;
 }
@@ -323,6 +335,7 @@ header {
     color: #555;
     font-weight: 395;
     border-bottom: none;
+    -webkit-transition: border-bottom 0.5s, color 0.2s;
     transition: border-bottom 0.5s, color 0.2s;
 }
 
@@ -331,6 +344,7 @@ header {
 /* ---------------------- */
 
 .section-customers {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.8)), to(rgba(0, 0, 0, 0.8))), url(img/back-customers.jpg);
     background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(img/back-customers.jpg);
     background-size: cover;
     color: #ebe5e5;
@@ -430,8 +444,112 @@ cite img {
     font-size: 80%;
 }
 
+/* ---------------------- */
+/* FOOTER */
+/* ---------------------- */
 
+  footer {
+      background-color: #333;
+      padding: 35px;
+      font-size: 80%;
+  }
 
+  .footer-nav {
+      list-style: none;
+      float: left;
+  }
+
+  .social-links {
+      list-style: none;
+      float: right;
+  }
+
+  .footer-nav li,
+  .social-links li {
+      display: inline-block;
+      margin-right: 20px;
+  }
+
+  .footer-nav a,
+  .social-links i {
+    color: #888;
+  }
+
+  .social-links li:last-child {
+      margin: 0;
+  }
+
+  .footer-nav a:link,
+  .footer-nav a:visited,
+  .social-links a:link,
+  .social-links a:visited {
+      text-decoration: none;
+      border: 0;
+      transition: color 0.2s;
+  }
+
+  .footer-nav a:hover,
+  .footer-nav a:active {
+      color: #ddd;
+  }
+
+  .social-links a:link,
+  .social-links a:visited {
+      font-size: 160%;
+  }
+
+  .ion-social-facebook,
+  .ion-social-twitter,
+  .ion-social-instagram {
+      transition: color 0.2s;
+  }
+
+  .ion-social-facebook:hover,
+  .ion-social-facebook:active {
+    color: #1877f2;
+  }
+
+  .ion-social-twitter:hover,
+  .ion-social-twitter:active {
+    color: #1da1f2;
+  }
+
+  .ion-social-instagram:hover,
+  .ion-social-instagram:active {
+    color: #f46f30;
+  }
+
+  footer p {
+      color: #888;
+      text-align: center;
+      margin-top: 30px;
+  }
+
+/* ---------------------- */
+/* SIGN UP */
+/* ---------------------- */
+ 
+.signup,
+.login {
+    padding: 0;
+    color: #fff;
+}
+
+.signup h2,
+.login h2 {
+    color: #fff;
+}
+
+.signup label,
+.login label {
+    float: right;
+    padding-right: 50px;
+}
+
+.su-btn {
+    text-align: center;
+    padding-top: 20px;
+}
 
 
 
