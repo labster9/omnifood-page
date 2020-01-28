@@ -17,18 +17,21 @@
         $email = $_POST["email"];
         $password = $_POST["password"];
 
-        $email = htmlentities($login, ENT_QUOTES);
-        $password = htmlentities($password, ENT_QUOTES);
+        $email = htmlentities($email, ENT_QUOTES);
 
         if ($result = @$connection->query(
-        sprintf("SELECT * FROM klient WHERE mail='%s' AND haslo='%s'",
-        mysqli_real_escape_string($connection, $email),
-        mysqli_real_escape_string($connection, $password)))){
+        sprintf("SELECT * FROM klient WHERE mail='%s'",
+        mysqli_real_escape_string($connection, $email)))){
+
             $users = $result->num_rows;
-            if($users>1){
-                $_SESSION['zalogowany'] = true;
+
+            if($users>0){
 
                 $row = $result->fetch_assoc();
+
+                if(password_verify($password, $row['haslo'])){
+
+                $_SESSION['zalogowany'] = true;
                 $_SESSION['id_klient'] = $row['id_klient'];
                 $_SESSION['imie'] = $row['imie'];
                 $_SESSION['nazwisko'] = $row['nazwisko'];
@@ -40,6 +43,13 @@
                 unset($_SESSION['blad']);
                 $result->close();
                 header('Location: logged.php');
+                }
+
+                else {
+                    $_SESSION['blad'] = '<span style="color:red"> Wrong email or password!</span>';
+                    header('Location: signin.php'); 
+                }
+
             }
             else {
                 $_SESSION['blad'] = '<span style="color:red"> Wrong email or password!</span>';

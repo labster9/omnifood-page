@@ -19,13 +19,15 @@
             <nav>
                 <div class="row">
                     <img src="public/img/logo-white.png" alt="Omnifood logo" class="logo">
+                    <img src="public/img/logo.png" alt="Omnifood logo" class="logo-black">
+
                     
                     <ul class="main-nav">
                         <li><a href="#">food delivery</a></li>
                         <li><a href="#">how it works</a></li> 
                         <li><a href="#">our cities</a></li>
-                        <li><a href="signup.html">sign up</a></li>
-                        <li><a href="signin.html">sign in</a></li>
+                        <li><a href="signup.php">sign up</a></li>
+                        <li><a href="signin.php">sign in</a></li>
                     </ul>
                 </div>
             </nav>
@@ -418,7 +420,10 @@
 
         </footer>
         
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="jquery.waypoints.min.js"></script>
+        <script src="script.js"></script>
+
     </body>
 
     

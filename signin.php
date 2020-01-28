@@ -33,8 +33,8 @@ session_start();
                         <li><a href="#">food delivery</a></li>
                         <li><a href="#">how it works</a></li> 
                         <li><a href="#">our cities</a></li>
-                        <li><a href="index.html">home</a></li>
-                        <li><a href="signup.html">sign up</a></li>
+                        <li><a href="index.php">home</a></li>
+                        <li><a href="signup.php">sign up</a></li>
                     </ul>
                 </div>
             </nav>
@@ -68,11 +68,6 @@ session_start();
                     </div>
                     
                 </form>
-
-            <?php
-                if(isset($_SESSION['blad']))
-                    echo $_SESSION['blad'];
-            ?>
 
     </header>
 
